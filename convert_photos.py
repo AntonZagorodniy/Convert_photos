@@ -35,8 +35,8 @@ def convert_photo():
     result_dir = get_result_dir()
     jpg_list = get_jpg_list()
     for i, file in enumerate(jpg_list):
-        current_dir_photo = current_dir + '\\' + jpg_list[i]
-        result_dir_photo = result_dir + '\\new_' + jpg_list[i]
+        current_dir_photo = os.path.join(current_dir, jpg_list[i])
+        result_dir_photo = os.path.join(result_dir, 'new_' + jpg_list[i])
         str = 'convert {0} -resize 200 {1}'.format(current_dir_photo, result_dir_photo)
         convert = subprocess.run(str)
         print(convert)
